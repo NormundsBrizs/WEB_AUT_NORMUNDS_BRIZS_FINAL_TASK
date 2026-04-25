@@ -9,6 +9,6 @@ module.exports = defineConfig({
     },
     viewportWidth: 1440,
     viewportHeight: 1400,
-    baseUrl: 'https://katalon-demo-cura.herokuapp.com/',
+    baseUrl: 'https://demoqa.com/automation-practice-form',
   },
 });
