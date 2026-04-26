@@ -68,4 +68,12 @@ export class PracticeFormPage extends BasePage {
     static citySelect(city) {
         cy.get('[id^="react-select-4-option"]').contains(city).click();
     }
+
+    static uploadPicture(fileName) {
+        cy.get('#uploadPicture').selectFile(`cypress/files/${fileName}`);
+    }
+
+    static get submitButton() {
+        return cy.get('#submit');
+    }
 }

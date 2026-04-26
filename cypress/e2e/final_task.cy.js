@@ -16,6 +16,7 @@ describe('DEMO QA', () => {
         subject: 'Economics',
         state: 'NCR',
         city: 'Delhi',
+        picture: 'thumbs_up.jpg',
       }
       // Input First Name, Last Name, Email, Gender and Mobile Number with test data
       PracticeFormPage.nameField.type(testData.name);
@@ -34,6 +35,7 @@ describe('DEMO QA', () => {
       // Set Hobbies to Music
       PracticeFormPage.hobbiesRadioMusic.click();
       // Upload an image of your choice
+      PracticeFormPage.uploadPicture(testData.picture);
       // Set State to NCR
       PracticeFormPage.stateField.click();
       PracticeFormPage.stateSelect(testData.state);
@@ -41,7 +43,18 @@ describe('DEMO QA', () => {
       PracticeFormPage.cityField.click();
       PracticeFormPage.citySelect(testData.city);
       // Click Submit
+      PracticeFormPage.submitButton.click();
       // Validate that each Labeled row contains the correct information
+      cy.contains('td', 'Student Name').next().should('have.text', testData.name + ' ' + testData.surname);
+      cy.contains('td', 'Student Email').next().should('have.text', testData.email);
+      cy.contains('td', 'Gender').next().should('have.text', 'Male');
+      cy.contains('td', 'Mobile').next().should('have.text', testData.mobileNumber);
+      cy.contains('td', 'Date of Birth').next().should('have.text', '28 February,1930');
+      cy.contains('td', 'Subjects').next().should('have.text', testData.subject);
+      cy.contains('td', 'Hobbies').next().should('have.text', 'Music');
+      cy.contains('td', 'Picture').next().should('have.text', testData.picture);
+      cy.contains('td', 'Address').next().should('have.text', '');
+      cy.contains('td', 'State and City').next().should('have.text', testData.state + ' ' + testData.city);
     })
   })
 })
