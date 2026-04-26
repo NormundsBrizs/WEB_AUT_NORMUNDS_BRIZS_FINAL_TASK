@@ -14,6 +14,8 @@ describe('DEMO QA', () => {
         email: 'johndoe@test.com',
         mobileNumber: '1234567890',
         subject: 'Economics',
+        state: 'NCR',
+        city: 'Delhi',
       }
       // Input First Name, Last Name, Email, Gender and Mobile Number with test data
       PracticeFormPage.nameField.type(testData.name);
@@ -33,7 +35,11 @@ describe('DEMO QA', () => {
       PracticeFormPage.hobbiesRadioMusic.click();
       // Upload an image of your choice
       // Set State to NCR
+      PracticeFormPage.stateField.click();
+      PracticeFormPage.stateSelect(testData.state);
       // Set City to Delhi
+      PracticeFormPage.cityField.click();
+      PracticeFormPage.citySelect(testData.city);
       // Click Submit
       // Validate that each Labeled row contains the correct information
     })

@@ -52,4 +52,20 @@ export class PracticeFormPage extends BasePage {
     static get hobbiesRadioMusic() {
         return cy.get('#hobbies-checkbox-3');
     }
+
+    static get stateField() {
+        return cy.get('#react-select-3-input');
+    }
+
+    static stateSelect(state) {
+        cy.get('[id^="react-select-3-option"]').contains(state).click();
+    }
+
+    static get cityField() {
+        return cy.get('#react-select-4-input');
+    }
+
+    static citySelect(city) {
+        cy.get('[id^="react-select-4-option"]').contains(city).click();
+    }
 }
